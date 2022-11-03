@@ -1,0 +1,6 @@
+DROP DATABASE IF EXISTS potato;
+CREATE DATABASE IF NOT EXISTS potato;
+
+USE bone;
+
+SELECT * FROM chars;

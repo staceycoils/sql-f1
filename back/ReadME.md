@@ -1,0 +1,1 @@
+source ./data/seeding/setup.sql

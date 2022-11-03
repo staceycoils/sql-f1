@@ -1,0 +1,23 @@
+{
+  "name": "vue-project",
+  "version": "0.0.0",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "events": "^3.3.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "vue": "^3.2.38"
+  },
+  "scripts": {
+    "pie": "NODE_ENV=pie node test.js",
+    "run": "node test.js",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "devDependencies": {
+    "@types/mysql2": "github:types/mysql2",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "vite": "^3.0.9"
+  }
+}
