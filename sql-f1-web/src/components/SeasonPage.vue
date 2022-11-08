@@ -3,9 +3,10 @@ import { ref, onUpdated, watch } from 'vue';
 import {getDrivers, getPoints, getResults} from './functions/dataFetching.js';
 import pointData from './points.js'
 
-const years = []
-for (let i = 1990; i < 2021; i++) {
-    years.push(i)
+const years = [];
+const currentYear = new Date().getFullYear();
+for (let i = 1960; i < currentYear; i++) {
+    years.unshift(i)
 }
 
 let flBank = ref([]);
