@@ -8,10 +8,16 @@
     "mysql2": "^2.3.3"
   },
   "scripts": {
-    "pie": "NODE_ENV=pie node test.js",
-    "run": "node test.js",
-    "test": "jest tests/testing.test.js",
-    "watch": "jest tests/testing.test.js --watch"
+    "db-setup": "mysql -u root -p sql_f1 < data/seeding/setup.sql",
+    "seed": "node data/seeding/seed.js",
+    "seed_test": "NODE_ENV=test node data/seeding/seed.js",
+    "start": "node __listener.js",
+
+
+    "pie": "NODE_ENV=pie node connection.js",
+    "run": "node connection.js",
+    "test": "jest tests/testing.connection.js",
+    "watch": "jest tests/testing.connection.js --watch"
   },
   "devDependencies": {
     "jest": "^29.1.2",

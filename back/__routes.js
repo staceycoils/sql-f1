@@ -1,6 +1,6 @@
 const express = require('express');
 const apiRoutes = express.Router();
-const db = require("./test");
+const db = require("./connection");
 
 apiRoutes.get('/', (req,res,next) => {
     res.status(200).send({

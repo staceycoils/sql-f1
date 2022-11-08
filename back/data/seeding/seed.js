@@ -1,17 +1,12 @@
-import { createConnection } from 'mysql2';
-import databaseInfo from '../../db_info';
+const {liveData} = require ('../livedata/getLiveData');
+const {testData} = require ('../testdata/getTestData');
+const db = require('../../connection');
 
-if (!databaseInfo) {
-    console.log("NO DETAILS GIVEN");
-    throw new Error();
+if (process.env.NODE_ENV === 'test') {
+  testData.seedDrivers();
+  testData.seedRaces();
+} else {
+  console.log('beans')
+  liveData.seedDrivers();
+  liveData.seedRaces();
 }
-
-const db = createConnection(databaseInfo);
-
-console.log(db.connect)
-
-db.connect(function() {
-    db.query('SELECT name FROM drivers;', function (err, result, fields) {
-      console.log("Result: " + result);
-    });
-  });
