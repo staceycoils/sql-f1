@@ -6,7 +6,6 @@ if (process.env.NODE_ENV === 'test') {
   testData.seedDrivers();
   testData.seedRaces();
 } else {
-  console.log('beans')
   liveData.seedDrivers();
   liveData.seedRaces();
 }

@@ -12,6 +12,7 @@
     "seed": "node data/seeding/seed.js",
     "seed_test": "NODE_ENV=test node data/seeding/seed.js",
     "start": "node __listener.js",
+    "seed:prod": "NODE_ENV=production DATABASE_URL=$(heroku config:get DATABASE_URL) npm run seed",
 
 
     "pie": "NODE_ENV=pie node connection.js",
