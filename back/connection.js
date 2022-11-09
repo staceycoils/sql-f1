@@ -9,6 +9,7 @@ if (!databaseInfo) {
     console.log("NO DETAILS GIVEN");
     throw new Error();
 }
+console.log(env)
 
 const db = mysql.createConnection(databaseInfo);
 
