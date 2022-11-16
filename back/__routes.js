@@ -1,6 +1,6 @@
 const express = require('express');
 const apiRoutes = express.Router();
-const db = require("./connection");
+const { db, pool } = require("./connection");
 
 apiRoutes.get('/', (req,res,next) => {
     res.status(200).send({
@@ -10,7 +10,7 @@ apiRoutes.get('/', (req,res,next) => {
 
 apiRoutes.get('/drivers', (req,res,next) => {
     if (req.query.year === undefined) {
-        db.query(`
+        pool.query(`
         SELECT DISTINCT 
         surname,
         firstName FROM drivers
@@ -20,7 +20,7 @@ apiRoutes.get('/drivers', (req,res,next) => {
         res.status(200).send(data);
     })
     } else {
-        db.query(`
+        pool.query(`
             SELECT * FROM drivers
             WHERE year = ${req.query.year}    
         `, (err,data) => {
@@ -32,7 +32,7 @@ apiRoutes.get('/drivers', (req,res,next) => {
 
 apiRoutes.get('/driver', (req,res,next) => {
     console.log(req.query)
-    db.query(`
+    pool.query(`
         SELECT * FROM races
         WHERE "${req.query.name}" IN (
             res01, res02, res03, res04, res05,
@@ -49,14 +49,14 @@ apiRoutes.get('/driver', (req,res,next) => {
 });
 
 apiRoutes.get('/points', (req,res,next) => {
-    db.query('SELECT * FROM points', (err,data) => {
+    pool.query('SELECT * FROM points', (err,data) => {
         if (err) throw err;
         res.status(200).send(data);
     })
 });
 
 apiRoutes.get('/races', (req,res,next) => {
-    db.query(`
+    pool.query(`
         SELECT * FROM races
         WHERE seasonYear = ${req.query.year};
     `, (err,data) => {
