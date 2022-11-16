@@ -1,5 +1,5 @@
 function getDrivers(arr,year) {
-    fetch(`http://localhost:9090/api/drivers?year=${year.value}`)
+    fetch(`https://sql-f1-project.herokuapp.com/api/drivers?year=${year.value}`)
     .then(response => response.json())
     .then(info => {
         arr.value.push(info);
@@ -7,7 +7,7 @@ function getDrivers(arr,year) {
 }
 
 function getAllDrivers(arr) {
-    fetch(`http://localhost:9090/api/drivers`)
+    fetch(`https://sql-f1-project.herokuapp.com/api/drivers`)
     .then(response => response.json())
     .then(info => {
         arr.value.push(info);
@@ -15,7 +15,7 @@ function getAllDrivers(arr) {
 }
 
 function getSingleDriver(arr, name, fullName) {
-    fetch(`http://localhost:9090/api/driver?name=${name}`)
+    fetch(`https://sql-f1-project.herokuapp.com/api/driver?name=${name}`)
     .then(response => response.json())
     .then(info => {
         arr.value = [name, info, fullName];
@@ -24,7 +24,7 @@ function getSingleDriver(arr, name, fullName) {
 }
 
 function getResults(arr,year) {
-    fetch(`http://localhost:9090/api/races?year=${year.value}`)
+    fetch(`https://sql-f1-project.herokuapp.com/api/races?year=${year.value}`)
     .then(response => response.json())
     .then(info => {
         arr.value.push(info);
@@ -32,7 +32,7 @@ function getResults(arr,year) {
 }
 
 function getPoints(arr) {
-    fetch('http://localhost:9090/api/points')
+    fetch('https://sql-f1-project.herokuapp.com/api/points')
     .then(response => response.json())
     .then(info => {
         arr.value.push(info);

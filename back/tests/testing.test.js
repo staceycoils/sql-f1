@@ -1,9 +1,7 @@
 const request = require("supertest");
-const app = require("../dbFunctions");
-// const readDataBase = require("../dbFunctions");
 // const db = require("../connection");
 
-jest.useFakeTimers(2000)
+// jest.useFakeTimers(2000)
 
 // afterAll(()=> db.end())
 
