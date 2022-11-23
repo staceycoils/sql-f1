@@ -4,13 +4,11 @@ const ENV = process.env.NODE_ENV || 'development';
 const FILENAME = ENV === 'test' ? '_test' : '';
 
 const databaseInfo = ENV === 'production' ? {
-  host: 'us-cdbr-east-06.cleardb.net',
-  user: 'ba33c92061e72d',
-  password: '44ed5e4e',
-  database: 'heroku_92a3d28c7bb8175'
+  host: process.env.CLEARDB_DATABASE_URL.slice(32,59),
+  user: process.env.CLEARDB_DATABASE_URL.slice(8,22),
+  password: process.env.CLEARDB_DATABASE_URL.slice(23,31),
+  database: process.env.CLEARDB_DATABASE_URL.slice(60,82)
 } : require(`./db_info${FILENAME}`);
-
-console.log(ENV)
 
 if (!databaseInfo) {
     console.log("NO DETAILS GIVEN");
@@ -20,10 +18,10 @@ if (!databaseInfo) {
 const db = mysql.createConnection(databaseInfo);
 
 const pool = mysql.createPool({
-  host: 'us-cdbr-east-06.cleardb.net',
-  user: 'ba33c92061e72d',
-  password: '44ed5e4e',
-  database: 'heroku_92a3d28c7bb8175',
+  host: process.env.CLEARDB_DATABASE_URL.slice(32,59),
+  user: process.env.CLEARDB_DATABASE_URL.slice(8,22),
+  password: process.env.CLEARDB_DATABASE_URL.slice(23,31),
+  database: process.env.CLEARDB_DATABASE_URL.slice(60,82),
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
@@ -39,4 +37,4 @@ db.connect((err) => {
     console.log('Database connected.')
   })
 
-module.exports = { db: db, pool: pool};
+module.exports = { db: db, pool: pool };
