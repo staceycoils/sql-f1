@@ -1,11 +1,26 @@
 {
   "name": "sql-f1-project",
   "version": "1.0.0",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3"
+  },
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd back/ && npm run start"
+    "start": "cd back/ && npm run start",
+    "seed": "node data/seeding/seed.js",
+    "seed_test": "NODE_ENV=test node data/seeding/seed.js",
+    "start local": "node __listener.js",
+    "seed:prod": "NODE_ENV=production DATABASE_URL=$(heroku config:get CLEARDB_DATABASE_URL) npm run seed",
+
+
+    "pie": "NODE_ENV=pie node connection.js"
+  },
+  "devDependencies": {
+    "jest": "^29.1.2",
+    "supertest": "^6.3.0"
   },
   "repository": {
     "type": "git",
@@ -16,6 +31,9 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/staceycoils/sql-f1/issues"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   },
   "homepage": "https://github.com/staceycoils/sql-f1#readme"
 }
