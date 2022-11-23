@@ -9,7 +9,7 @@
   },
   "description": "",
   "scripts": {
-    "start": "cd sql-f1-be/ && npm run start",
+    "start": "node sql-f1-be/__listener.js",
     "seed": "node data/seeding/seed.js",
     "seed_test": "NODE_ENV=test node data/seeding/seed.js",
     "start local": "node __listener.js",
