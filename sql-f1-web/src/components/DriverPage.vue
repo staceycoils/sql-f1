@@ -273,14 +273,7 @@ label {
     width: 300px;
 }
 
-
-
-
-
-
-
-
-
+/* Table setup */
 
 table {
     background-color: rgb(255,255,255);

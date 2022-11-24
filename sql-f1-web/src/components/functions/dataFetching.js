@@ -3,7 +3,8 @@ function getDrivers(arr,year) {
     .then(response => response.json())
     .then(info => {
         arr.value.push(info);
-    });
+    })
+    .catch((e)=>{console.log(e)});
 }
 
 function getAllDrivers(arr) {
@@ -11,7 +12,8 @@ function getAllDrivers(arr) {
     .then(response => response.json())
     .then(info => {
         arr.value.push(info);
-    });
+    })
+    .catch((e)=>{console.log(e)});
 }
 
 function getSingleDriver(arr, name, fullName) {
@@ -20,7 +22,7 @@ function getSingleDriver(arr, name, fullName) {
     .then(info => {
         arr.value = [name, info, fullName];
     })
-    .catch((e)=>{console.log(e)})
+    .catch((e)=>{console.log(e)});
 }
 
 function getResults(arr,year) {
@@ -28,7 +30,8 @@ function getResults(arr,year) {
     .then(response => response.json())
     .then(info => {
         arr.value.push(info);
-    });
+    })
+    .catch((e)=>{console.log(e)});
 }
 
 function getPoints(arr) {
@@ -36,7 +39,8 @@ function getPoints(arr) {
     .then(response => response.json())
     .then(info => {
         arr.value.push(info);
-    });
+    })
+    .catch((e)=>{console.log(e)});
 }
 
 export {

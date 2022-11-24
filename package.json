@@ -5,7 +5,10 @@
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "events": "^3.3.0",
+    "mysql": "^2.18.1",
+    "vue": "^3.2.38"
   },
   "description": "",
   "scripts": {
@@ -15,12 +18,19 @@
     "start local": "node __listener.js",
     "seed:prod": "NODE_ENV=production DATABASE_URL=$(heroku config:get CLEARDB_DATABASE_URL) npm run seed",
 
+    "run": "node test.js",
+    "dev": "cd sql-f1-web/ && npm run dev",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
 
     "pie": "NODE_ENV=pie node connection.js"
   },
   "devDependencies": {
     "jest": "^29.1.2",
-    "supertest": "^6.3.0"
+    "supertest": "^6.3.0",
+    "@types/mysql2": "github:types/mysql2",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "vite": "^3.0.9"
   },
   "repository": {
     "type": "git",

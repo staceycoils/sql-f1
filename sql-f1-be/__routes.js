@@ -31,7 +31,6 @@ apiRoutes.get('/drivers', (req,res,next) => {
 });
 
 apiRoutes.get('/driver', (req,res,next) => {
-    console.log(req.query)
     pool.query(`
         SELECT * FROM races
         WHERE "${req.query.name}" IN (

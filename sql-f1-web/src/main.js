@@ -6,9 +6,8 @@ import './assets/main.css'
 const app = createApp(App);
 
 app.config.errorHandler = (err) => {
+    throw new Error(err)
     console.log(err)
 };
-
-// app.component('TodoDeleteButton', TodoDeleteButton);
 
 app.mount('#app');
