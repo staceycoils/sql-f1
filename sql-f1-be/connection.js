@@ -4,10 +4,10 @@ const ENV = process.env.NODE_ENV || 'development';
 const FILENAME = ENV === 'test' ? '_test' : '';
 
 const databaseInfo = ENV === 'production' ? {
-  host: process.env.CLEARDB_DATABASE_URL.slice(32,59),
-  user: process.env.CLEARDB_DATABASE_URL.slice(8,22),
-  password: process.env.CLEARDB_DATABASE_URL.slice(23,31),
-  database: process.env.CLEARDB_DATABASE_URL.slice(60,82)
+  host: 'sql8.freemysqlhosting.net',
+  user: 'sql8591114',
+  password: 'EBHLArSeXY',
+  database: 'sql8591114'
 } : require(`./db_info${FILENAME}`);
 
 if (!databaseInfo) {
@@ -19,10 +19,10 @@ const db = mysql.createConnection(databaseInfo);
 
 if (ENV === 'production') {
   const pool = mysql.createPool({
-    host: process.env.CLEARDB_DATABASE_URL.slice(32,59),
-    user: process.env.CLEARDB_DATABASE_URL.slice(8,22),
-    password: process.env.CLEARDB_DATABASE_URL.slice(23,31),
-    database: process.env.CLEARDB_DATABASE_URL.slice(60,82),
+    host: 'sql8.freemysqlhosting.net',
+    user: 'sql8591114',
+    password: 'EBHLArSeXY',
+    database: 'sql8591114',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
