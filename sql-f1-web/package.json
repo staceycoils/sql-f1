@@ -9,7 +9,6 @@
     "vue": "^3.2.38"
   },
   "scripts": {
-    "pie": "NODE_ENV=pie node test.js",
     "run": "node test.js",
     "dev": "vite",
     "build": "vite build",
